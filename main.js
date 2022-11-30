@@ -25,6 +25,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // FUNCTIONS:
 
+// Using the Luhn algorithm, this function checks return true if the card is valid
 const validateCred = arr => {
     let sum = 0;
   for (let i = arr.length - 1; i >= 0; i--) {
@@ -41,13 +42,13 @@ const validateCred = arr => {
 }
 
 
-
+// Function to check through the nested array for which numbers are invalid, and return another nested array of invalid cards.
 const findInvalidCards = arr=>{
     let invalidCard = arr.filter(a => !validateCred(a));
     return invalidCard;
 }
 
-
+//This function returns an array of companies with invalid cards
 const idInvalidCardCompanies= (ArrInvalidCards)=>{
     let listCompanies=[]
     for (let i=0; i<ArrInvalidCards.length;i++){
